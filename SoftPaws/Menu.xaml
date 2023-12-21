@@ -1,0 +1,79 @@
+﻿<Window x:Class="SoftPaws.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoftPaws"
+        mc:Ignorable="d"
+        Title="Menu" Height="1050" MaxHeight="1050" Width="1920" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Window.Resources>
+        <ImageBrush x:Key="BackgroundBrush" ImageSource="img/bg.jpg"/>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1000"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="600"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="355,10,0,0" Grid.Column="2" Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Width="40" Height="25" Foreground="#FF4E67A0" Background="Transparent" Click="MinimizeButton_Click" BorderBrush="{x:Null}" Grid.Column="0">
+                <TextBlock FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="35" Padding="0,0,0,40" Margin="0,0,0,4" FontWeight="Bold">_</TextBlock>
+            </Button>
+            <Button Margin="5,0,5,0" Content="X" Width="40" Height="25" Foreground="Red" Background="Transparent" Click="CloseButton_Click" BorderBrush="{x:Null}" Grid.Column="1"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="150,30">
+            <Border CornerRadius="10">
+                <Border.Background>
+                    <SolidColorBrush Color="White"/>
+                </Border.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Label Content="Меню" HorizontalAlignment="Center" Margin="0,25,10,10" VerticalAlignment="Top" FontSize="45" Grid.Row="0" Grid.Column="1" Foreground="#FF4BACAC" FontFamily="Century Gothic"/>
+
+                    <Button x:Name="animalsBtn" Content="Животные" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Width="350" Height="45" Background="#FF4BACAC" Foreground="White" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="1" FontSize="20" Click="animalsBtn_Click"/>
+                    <Button x:Name="Ankets" Content="Опекуны и анкеты" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Width="350" Height="45" Background="#FF4BACAC" Foreground="White" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="2" FontSize="20" Click="Ankets_Click"/>
+                    <Button x:Name="workersBtn" Content="Сотрудники" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Width="350" Height="45" Background="#FF4BACAC" Foreground="White" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="3" FontSize="20" Visibility="Visible" Click="workersBtn_Click"/>
+                    <Button x:Name="reportsBtn" Content="Отчеты" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Width="350" Height="45" Background="#FF4BACAC" Foreground="White" BorderBrush="{x:Null}" Grid.Column="1" Grid.Row="4" FontSize="20" Visibility="Visible" Click="reportsBtn_Click"/>
+
+                    <Button x:Name="back" Content="Выйти из учетной записи" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Bottom" Width="250" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF196599" Grid.Column="1" Grid.Row="6" FontWeight="Bold" FontSize="17" Click="back_Click"/>
+                    <Button Content="Выход" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Bottom" Width="150" Height="40" Grid.Column="1" Grid.Row="7" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF911E1E" FontWeight="Bold" FontSize="17" Click="Button_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+
+        <Image HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="53" Source="img/iconPaws2.png" RenderTransformOrigin="1.037,0.993" Margin="10,10,0,0" />
+        <Label Content="SOFT PAWS" HorizontalAlignment="Center" Margin="59,15,249,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Gill Sans Ultra Bold Condensed" Foreground="#FFD46085"/>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,195 @@
+﻿<Window x:Class="SoftPaws.Animals"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SoftPaws"
+        mc:Ignorable="d"
+        Title="Animals" Height="1050" MaxHeight="1050" Width="1920" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Window.Resources>
+        <ImageBrush x:Key="BackgroundBrush" ImageSource="img/bg.jpg"/>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="910"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="53" Source="img/iconPaws2.png" RenderTransformOrigin="1.037,0.993" Margin="10,10,0,0" />
+        <Label Content="SOFT PAWS" HorizontalAlignment="Center" Margin="63,18,1705,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Gill Sans Ultra Bold Condensed" Foreground="#FFD46085"/>
+
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="355,10,0,0" Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Width="40" Height="25" Foreground="#FF4E67A0" Background="Transparent" Click="MinimizeButton_Click" BorderBrush="{x:Null}" Grid.Column="0">
+                <TextBlock FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="35" Padding="0,0,0,40" Margin="0,0,0,4" FontWeight="Bold">_</TextBlock>
+            </Button>
+            <Button Margin="5,0,5,0" Content="X" Width="40" Height="25" Foreground="Red" Background="Transparent" Click="CloseButton_Click" BorderBrush="{x:Null}" Grid.Column="1"/>
+        </Grid>
+
+        <TabControl HorizontalAlignment="Left" Height="910"  Grid.Row="1" VerticalAlignment="Top" Width="1900" Margin="10,0,0,0">
+            <TabItem Header="Животные" Width="150" Height="30">
+                <Grid Grid.Row="1" Margin="0,0,0,0">
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF879DA8" Opacity="0.3"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="FiltrAnimalBtn" Content="Фильтрация животных" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10" Width="170" Height="30" Grid.Column="0" BorderBrush="{x:Null}" Background="#FF4BACAC" Foreground="White" Click="FiltrAnimalBtn_Click"/>
+                    <Button x:Name="BanFiltrAnimalBtn" Content="Сборос фильтров" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,10" Width="120" Height="30" Grid.Column="0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF4BACAC" Click="BanFiltrAnimalBtn_Click"/>
+                    <ListView x:Name="inSheaterAnimalsLV" HorizontalAlignment="Left" Height="827" Margin="0" VerticalAlignment="Bottom" Width="1050"  Grid.Row="1" Grid.RowSpan="10" Grid.Column="0" BorderBrush="#FF979797" SelectionChanged="inSheaterAnimalsLV_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="№" Width="30"  DisplayMemberBinding="{Binding NumInSheater}"/>
+                                <GridViewColumn Header="Кличка" Width="140"  DisplayMemberBinding="{Binding NameInSheater}"/>
+                                <GridViewColumn Header="Возраст(прим.)" Width="95"  DisplayMemberBinding="{Binding YearoldInSheater}"/>
+                                <GridViewColumn Header="Категория" Width="125"  DisplayMemberBinding="{Binding CategInSheater}"/>
+                                <GridViewColumn Header="Пол" Width="80"  DisplayMemberBinding="{Binding GenderInSheater}"/>
+                                <GridViewColumn Header="Порода" Width="200"  DisplayMemberBinding="{Binding VidInSheater}"/>
+                                <GridViewColumn Header="Статус" Width="100"  DisplayMemberBinding="{Binding StatusSheater}"/>
+                                <GridViewColumn Header="Здоровье" Width="100"  DisplayMemberBinding="{Binding HealtInSheater}"/>
+                                <GridViewColumn Header="Изображение" Width="175">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image  Height="75" Source="{Binding FullImagePath}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Фотография" Grid.Row="1" Grid.Column="2" Margin="10,10,0,0" Foreground="#FF4E67A0"/>
+
+                        <Label Content="Кличка" Grid.Row="1" Grid.Column="0" Margin="10,10,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Возраст" Grid.Row="2" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Категория" Grid.Row="3" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Пол" Grid.Row="4" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Порода" Grid.Row="5" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Статус" Grid.Row="6" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+
+                        <Label Content="Здоровье животного" Grid.Row="7" Grid.Column="0" Margin="10,20,0,0"  FontWeight="Medium" Foreground="#FF4E67A0"/>
+                        <Label Content="Обработка от блох" Grid.Row="8" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Дегельминтизация" Grid.Row="9" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Прививки" Grid.Row="10" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+                        <Label Content="Стерилизация" Grid.Row="11" Grid.Column="0" Margin="10,0,0,0" Foreground="#FF4E67A0"/>
+
+                        <TextBox x:Name="NameInSheaterTB" Grid.Row="1" Grid.Column="1" Margin="10,10,10,0" Width="300" IsEnabled="True"/>
+                        <TextBox x:Name="YearOldInSheaterTB" Grid.Row="2" Grid.Column="1" Margin="10,5,10,0" Width="300" IsEnabled="True"/>
+                        <ComboBox x:Name="CategInSheaterCB" Grid.Row="3" Grid.Column="1" Margin="10,10,10,0" Width="300" IsEnabled="True" SelectionChanged="CategInSheaterCB_SelectionChanged"/>
+                        <RadioButton x:Name="GanderMInSheaterTB" Content="Женский" Grid.Row="4" Grid.Column="1" Margin="10,10,10,0" Width="80" HorizontalAlignment="Left" Foreground="#FF4E67A0" IsEnabled="True"/>
+                        <RadioButton x:Name="GanderWInSheaterTB" Content="Мужской" Grid.Row="4" Grid.Column="1" Margin="110,10,10,0" Width="80" HorizontalAlignment="Left" Foreground="#FF4E67A0" IsEnabled="True"/>
+                        <ComboBox x:Name="VidInSheaterTB" Grid.Row="5" Grid.Column="1" Margin="10,5,10,0" Width="300" IsEnabled="True" SelectionChanged="VidInSheaterTB_SelectionChanged"/>
+                        <ComboBox x:Name="WeaponPers" Grid.Row="6" Grid.Column="1" Margin="10,5,10,0" Width="300" IsEnabled="True" SelectionChanged="WeaponPers_SelectionChanged"/>
+
+                        <CheckBox x:Name="BlohChB" Grid.Row="8" Grid.Column="1" Margin="10,10,10,0" IsEnabled="True"/>
+                        <CheckBox x:Name="DegelchB" Grid.Row="9" Grid.Column="1" Margin="10,10,10,0" IsEnabled="True"/>
+                        <CheckBox x:Name="PrivivChb" Grid.Row="10" Grid.Column="1" Margin="10,10,10,0" IsEnabled="True"/>
+                        <CheckBox x:Name="SterizChB" Grid.Row="11" Grid.Column="1" Margin="10,10,10,0" IsEnabled="True"/>
+
+                        <Image x:Name="ImgAnimals" Grid.Row="2" Grid.Column="2" Grid.RowSpan="10" Margin="10" Width="330" Height="350" Stretch="Uniform"/>
+
+                        <Button x:Name="editAnimalBtn" Content="Редактировать животное" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 10 0 0" Grid.Column="1" Grid.Row="12" Width="200" Height="30" BorderBrush="{x:Null}" Background="#FF8DC56D" Foreground="White" Visibility="Collapsed" Click="editAnimalBtn_Click"/>
+                        <Button x:Name="editImgBtn" Content="Выбрать изображение" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 10 0 0" Grid.Column="2" Grid.Row="12" Width="150" Height="30" Background="#FF4BACAC" Foreground="White" BorderBrush="{x:Null}" Visibility="Collapsed" Click="editImgBtn_Click"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="addAnimal" Header="Добавить животное" Visibility="Visible">
+                <Grid Margin="0,0,0,0">
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF879DA8" Opacity="0.3"/>
+                    </Grid.Background>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Фотография" Grid.Row="1" Grid.Column="2" Margin="10,10,0,0" Foreground="#FF4E67A0"/>
+
+                    <Label Content="Кличка" Grid.Row="1" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+                    <Label Content="Возраст" Grid.Row="2" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+                    <Label Content="Категория" Grid.Row="3" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+                    <Label Content="Пол" Grid.Row="4" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+                    <Label Content="Порода" Grid.Row="5" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+
+                    <Label Content="Здоровье животного" Grid.Row="7" Grid.Column="0" Margin="50,20,0,0"  FontWeight="Medium" Foreground="#FF4E67A0"/>
+                    <Label Content="Обработка от блох" Grid.Row="8" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+                    <Label Content="Дегельминтизация" Grid.Row="9" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+                    <Label Content="Прививки" Grid.Row="10" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+                    <Label Content="Стерилизация" Grid.Row="11" Grid.Column="0" Margin="50,0,0,0" Foreground="#FF4E67A0"/>
+
+                    <TextBox x:Name="AddNameInSheaterTB" Grid.Row="1" Grid.Column="1" Margin="10,5,10,0" Width="300" />
+                    <TextBox x:Name="AddYearOldInSheaterTB" Grid.Row="2" Grid.Column="1" Margin="10,5,10,0" Width="300" />
+                    <ComboBox x:Name="AddCfaegInSheaterCB" Grid.Row="3" Grid.Column="1" Margin="10,10,10,0" Width="300" SelectionChanged="AddCfaegInSheaterCB_SelectionChanged" />
+                    <RadioButton x:Name="AddGanderMInSheaterTB" Content="Женский" Grid.Row="4" Grid.Column="1" Margin="10,10,10,0" Width="80" HorizontalAlignment="Left" Foreground="#FF4E67A0"/>
+                    <RadioButton x:Name="AddGanderWInSheaterTB" Content="Мужской" Grid.Row="4" Grid.Column="1" Margin="110,10,10,0" Width="80" HorizontalAlignment="Left" Foreground="#FF4E67A0"/>
+                    <ComboBox x:Name="AddVidInSheaterTB" Grid.Row="5" Grid.Column="1" Margin="10,5,10,0" Width="300" SelectionChanged="AddVidInSheaterTB_SelectionChanged" />
+
+                    <CheckBox x:Name="AddBlohChB" Grid.Row="8" Grid.Column="1" Margin="10,10,10,0" />
+                    <CheckBox x:Name="AddDegelchB" Grid.Row="9" Grid.Column="1" Margin="10,10,10,0"/>
+                    <CheckBox x:Name="AddPrivivChb" Grid.Row="10" Grid.Column="1" Margin="10,10,10,0"/>
+                    <CheckBox x:Name="AddSterizChB" Grid.Row="11" Grid.Column="1" Margin="10,10,10,0"/>
+
+                    <Image x:Name="AddImgAnimals" Grid.Row="2" Grid.Column="2" Grid.RowSpan="10" Margin="10" Width="330" Height="350" Stretch="Uniform"/>
+
+                    <Button x:Name="addAnimalBtn" Content="Добавить животное" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 10 0 0" Grid.Column="1" Grid.Row="12" Width="200" Height="30" BorderBrush="{x:Null}" Background="#FF8DC56D" Foreground="White" Click="addAnimalBtn_Click"/>
+                    <Button x:Name="addImgBtn" Content="Выбрать изображение" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10 10 0 0" Grid.Column="2" Grid.Row="12" Width="150" Height="30" Background="#FF4BACAC" Foreground="White" BorderBrush="{x:Null}" Click="addImgBtn_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+
+
+        <Button x:Name="back" Content="Назад" HorizontalAlignment="Left" Margin="10,15" VerticalAlignment="Bottom" Width="100" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF196599" Grid.Row="2" FontWeight="Bold" FontSize="17" Click="back_Click" Padding="0,0,20,0"/>
+
+        <Button Content="Выход" HorizontalAlignment="Right" Margin="10,15" VerticalAlignment="Bottom" Width="100" Height="40"  Grid.Row="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF911E1E" FontWeight="Bold" FontSize="17" Click="Button_Click"/>
+
+
+
+    </Grid>
+</Window>
